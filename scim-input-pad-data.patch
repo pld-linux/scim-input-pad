@@ -1,0 +1,35 @@
+--- scim-input-pad-0.1.3.1/data/Makefile.am.orig	2011-09-15 09:11:41.000000000 +0200
++++ scim-input-pad-0.1.3.1/data/Makefile.am	2012-09-16 12:37:40.893367719 +0200
+@@ -29,7 +29,7 @@
+ INPUT_PAD_SOURCE_FILES	= base.pad.in	\
+ 			  keyboard.pad.in	\
+ 			  japanese.pad.in	\
+-			  chinese.pad,in	\
++			  chinese.pad.in	\
+ 			  korean.pad.in		\
+ 			  arabian.pad.in	\
+ 			  ethiopic.pad.in	\
+@@ -47,7 +47,7 @@
+ 			  india_sinhala.pad.in	\
+ 			  india_syloti_nagri.pad.in	\
+ 			  india_tamil.pad.in	\
+-			  india_telugu.in	\
++			  india_telugu.pad.in	\
+ 			  armenian.pad.in	\
+ 			  balinese.pad.in	\
+ 			  buginese.pad.in	\
+@@ -70,6 +70,8 @@
+ 			  thai.pad.in		\
+ 			  tibet.pad.in
+ 
++INPUT_PAD_DEST_FILES	= $(INPUT_PAD_SOURCE_FILES:.pad.in=.pad)
++
+ scim_input_pad_datadir	= @SCIM_INPUT_PAD_DATADIR@
+ scim_input_pad_data_DATA= $(INPUT_PAD_DEST_FILES)
+ 
+@@ -77,4 +79,4 @@
+ 
+ CLEANFILES		= *.bak scim-input-pad $(INPUT_PAD_DEST_FILES)
+ 
+-*.pad:	*.pad.in	$(INTLTOOL_MERGE) $(top_srcdir)/po/*.po ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< ($)@'
++%.pad:	%.pad.in	$(INTLTOOL_MERGE) $(top_srcdir)/po/*.po ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
