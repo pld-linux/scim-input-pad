@@ -11,7 +11,7 @@ Patch0:		%{name}-data.patch
 URL:		http://www.scim-im.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libstdc++-devel
